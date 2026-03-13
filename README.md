@@ -9,6 +9,24 @@ This project uses the official Windows Indirect Display Driver combined with the
 
 HDR is only fully supported on Windows 11 24H2. On 23H2 and lower, you'll try your luck to get the HDR toggle in Windows settings. HDR is not supported on Windows 10.
 
+## Local build and install
+
+This repo now includes helper scripts for rebuilding and reinstalling the local custom SudoVDA package on the same machine.
+
+- Build only:
+  `powershell -ExecutionPolicy Bypass -File scripts\Build-Driver.ps1`
+- Build, install, trust the generated test certificate, and remove stale inactive SudoVDA OEM packages:
+  `powershell -ExecutionPolicy Bypass -File scripts\Update-Driver.ps1`
+- Build, install, and run the controller smoke test after the update:
+  `powershell -ExecutionPolicy Bypass -File scripts\Update-Driver.ps1 -RunSmokeTest`
+
+Notes:
+
+- The scripts expect the Windows 10/11 WDK `10.0.26100.0` toolchain to be installed.
+- `Build-Driver.ps1` skips the WDK package verifier by default because the current WDK install on this machine does not ship a working `InfVerif.dll` path. Compile, link, INF stamping, catalog generation, signing, and install still complete successfully.
+- If you want to try the full package verifier on another machine, use:
+  `powershell -ExecutionPolicy Bypass -File scripts\Build-Driver.ps1 -EnablePackageVerification`
+
 ## Config
 
 In Registry path `\HKEY_LOCAL_MACHINE\SOFTWARE\SudoMaker\SudoVDA` (create one if not exists):
