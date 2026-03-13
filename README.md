@@ -1,5 +1,7 @@
-# SudoVDA
-Based on Microsoft Indirect Display Driver Sample. This creates a virtual display in Windows that acts and functions just like a real one. It's useful for streaming, virtual reality applications, recording, headless servers, etc. The benefit over a physical display is the ability to adjust resolutions and refresh rates beyond the physical displays capabilities. For example, this would enable the ability to stream a game from your home PC using game streaming software at 240hz at 8K while owning a 60hz 1080p monitor (~~unrealistic,~~ but explains the abilities well). For servers without displays, this enabled remote desktop and screen streaming to other systems as if there were a display installed. 
+# SudoVDA OpenAI/Claude Enhanced version
+Based on Microsoft Indirect Display Driver Sample. This creates a virtual display in Windows that acts and functions just like a real one. It's useful for streaming, virtual reality applications, recording, headless servers, etc. The benefit over a physical display is the ability to adjust resolutions and refresh rates beyond the physical displays capabilities. For example, this would enable the ability to stream a game from your home PC using game streaming software at 240hz at 8K while owning a 60hz 1080p monitor (~~unrealistic,~~ but explains the abilities well). For servers without displays, this enabled remote desktop and screen streaming to other systems as if there were a display installed.
+
+This OpenAI/Claude enhanced version includes the updated local build, reinstall, and validation workflow used to rebuild the custom driver package, refresh the active Windows driver binding, and verify the controller handoff path end to end on the same machine.
 
 Supports emulating resolutions from **640 x 480** to **7680 x 4320 (8K)**, and refresh rates including **60hz, 75hz, 90hz, 120hz, 144hz, 165hz, 240hz, 480hz,** and **500hz.**
 
